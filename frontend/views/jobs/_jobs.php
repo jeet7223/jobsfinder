@@ -23,5 +23,5 @@ use yii\helpers\Url;
         ?>
     </div>
     <br>
-    <a href="<?= Url::to(['jobs/details','id'=>$model->id]) ?>" class="btn btn-success" target="_blank" data-pjax="0">View Details</a>
+    <a href="<?= Url::to(['jobs/details','id'=>$model->id]) ?>" class="btn head-btn1" target="_blank" data-pjax="0">View Details</a>
 </div>

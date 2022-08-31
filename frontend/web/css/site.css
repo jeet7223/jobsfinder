@@ -113,8 +113,8 @@ a.desc:after {
     cursor: pointer;
 }
 .pagination .active{
-    background-color: #28a745;
-    border-color: #28a745;
+    background-color: #fb246a;
+    border-color: #fb246a;
 }
 .pagination .active a{
     color: white;
@@ -124,7 +124,7 @@ a.desc:after {
     color: #000000;
 }
 .site-signup .nav .active {
-    background: #28a745;
+    background: #fb246a;
     color: #ffffff !important;
 }
 .site-signup .nav .active a{
@@ -134,5 +134,5 @@ a.desc:after {
     padding: 15px;
 }
 .site-signup .nav a{
-    color: #28a745;
+    color: #fb246a;
 }

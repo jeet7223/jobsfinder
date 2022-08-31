@@ -62,7 +62,7 @@ $this->title = 'Signup - Employer';
                     </div>
                 </div>
                 <div class="form-group">
-                    <?= Html::submitButton('Signup', ['class' => 'btn btn-success', 'name' => 'signup-button']) ?>
+                    <?= Html::submitButton('Signup', ['class' => 'btn head-btn2', 'name' => 'signup-button']) ?>
                 </div>
 
 
