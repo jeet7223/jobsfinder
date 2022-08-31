@@ -8,7 +8,7 @@
                         <!-- Logo -->
                         <div class="logo">
                             <a href="<?= \yii\helpers\Url::to(['/'])?>"><img
-                                        src="<?= Yii::getAlias('@web/img/logo/logo2_footer.png')?>" alt=""></a>
+                                        src="<?= Yii::getAlias('@web/img/logo/logo.png')?>" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-9 col-md-9">
