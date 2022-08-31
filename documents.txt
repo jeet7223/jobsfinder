@@ -1,0 +1,44 @@
+[Create a Project using yii2 Framework]:Steps
+
+1. \htdocs ->composer create-project --prefer-dist yiisoft/yii2-app-advanced {project_name}
+2. run command on command prompt
+3. create database (phpMyAdmin)
+4. in command prompt to -
+   -4.1 ->execute (php init) in a project directory
+   -4.2 ->0 [enter]
+   -4.3 ->yes [enter]
+5. config database project_folder -> common -> config -> main-local.php
+6. config user table
+	-6.1 -> on command prompt execute command -> php yii migrate/up
+	-6.2 -> yes [enter]
+
+->Generators like[Model,CRUD,Controller,Form,Module,Extension]
+go to browser nd type URL:- localhost/project_folder_name/admin/gii
+
+1)Model Generator :-
+-> Table Name
+-> Model Class Name = Auto_Generated
+-> Namespace
+-> Preview Button
+-> Generate Button
+
+2)CRUD Generator :-
+-> Model Class = common\models\{JobsData}
+-> Search Model Class = common\models\{JobsDataSearch}
+-> Controller Class = backend\controllers\{JobsDataController}
+-> View Path = @backend\views\{jobs-data}
+-> Select CheckBox-[Enable Pjax]
+-> Preview Button
+-> Generate Button
+
+**Add MenuItem**
+-> go to the code ->backend->view->layout->main.php
+	 $menuItems = [Lable & URL]
+
+**Print in HTML**
+->backend->view->folderview[job-data]->index.php
+	'format'=>'raw'
+
+**Import Model Class**
+->backend->view->folderview[job-data]->index.php
+	use common\models\{MOdelClassName};
