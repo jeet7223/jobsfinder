@@ -30,7 +30,7 @@ $this->title = 'Signup - Job Seeker';
 
     <br>
         <br>
-            <h2><strong><span style="color: #28a745">Register</span> Job Seeker</strong></h2>
+            <h2><strong><span style="color: #fb246a">Register</span> Job Seeker</strong></h2>
         <p>Please fill out the following fields to signup:</p>
     <div class="row">
         <div class="col-lg-12">

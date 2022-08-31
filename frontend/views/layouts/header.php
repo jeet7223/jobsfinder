@@ -31,10 +31,22 @@
                             </div>
                             <!-- Header-btn -->
                             <div class="header-btn d-none f-right d-lg-block">
+                              <?php if (Yii::$app->user->isGuest) {?>
                                 <a href="<?= \yii\helpers\Url::to(['site/signup','user_type'=>'seeker'])
                                 ?>" class="btn head-btn1">Register</a>
                                 <a href="<?= \yii\helpers\Url::to(['site/login'])
                                 ?>" class="btn head-btn2">Login</a>
+                                <?php }else{?>
+                                      <span class="username">
+                                          <i class="fa fa-user"></i> <?=
+                                          Yii::$app->user->identity->username?>
+                                      </span>
+                                  <a href="<?= \yii\helpers\Url::to(['site/logout'])
+                                  ?>" class="btn head-btn1" data-method="POST"><i
+                                              class="fa fa-sign-out"></i>
+                                                                                  Logout</a>
+
+                                <?php }?>
                             </div>
                         </div>
                     </div>

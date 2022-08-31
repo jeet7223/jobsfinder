@@ -10,7 +10,7 @@ $this->title = 'Jobs Listing'
 ?>
     <div class="all-requests-index">
         <div class="text-center">
-            <h2><strong><span style="color: #28a745">Jobs</span> Listings</strong></h2>
+            <h2><strong><span style="color: #fb246a">Jobs</span> Listings</strong></h2>
         </div>
         <br>
         <div class="row">
@@ -34,7 +34,7 @@ $this->title = 'Jobs Listing'
                         'id'=>false
 
                     ],
-                    'emptyText' => ' <h2><strong><span style="color: #28a745">No</span> Request Found</strong></h2>'
+                    'emptyText' => ' <h2><strong><span style="color: #fb246a">No</span> Request Found</strong></h2>'
                 ]);
                 ?>
 
