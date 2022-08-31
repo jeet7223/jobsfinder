@@ -136,3 +136,14 @@ a.desc:after {
 .site-signup .nav a{
     color: #fb246a;
 }
+.all-requests-index .summary{
+    margin: 1em;
+}
+.header-area .username{
+    color: #252b60;
+    font-weight: 500;
+    padding: 37px 20px;
+    font-family: "Barlow",sans-serif;
+
+    font-size: 16px;
+}
