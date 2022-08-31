@@ -61,46 +61,6 @@ $this->title = 'Signup - Employer';
                         <?= $form->field($employer, 'contact_number')->textInput(['autofocus' => true,'placeholder' => '0001-1101-11']) ?>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <?= $form->field($employer, 'gender')->dropdownList([0=>'Male',1=>'Female',2=>'Other'])?>
-                    </div>
-                    <div class="col-lg-6">
-                        <?= $form->field($employer, 'dob')->textInput()?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <?= $form->field($employer, 'city')->textInput()?>
-                    </div>
-                    <div class="col-lg-4">
-                        <?= $form->field($employer, 'state')->textInput()?>
-                    </div>
-                    <div class="col-lg-4">
-                        <?= $form->field($employer, 'country')->textInput()?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <?= $form->field($employer, 'address')->textarea(['placeholder' => 'Address'])?>
-                    </div>
-                </div>
-                <br>
-                <h4><b>Employement Details</b></h4>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <?= $form->field($employer, 'current_company_name')->textInput()?>
-                    </div>
-                    <div class="col-lg-6">
-                        <?= $form->field($employer, 'employ
-                        ment_type')->dropdownList([0=>"Not Employed", 1=>'Self Employed', 2=> 'Student', 3 => 'Internship', 4 => 'Employed'])?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <?= $form->field($employer, 'profile_image')->textInput()?>
-                    </div>
-                </div>
                 <div class="form-group">
                     <?= Html::submitButton('Signup', ['class' => 'btn head-btn2', 'name' => 'signup-button']) ?>
                 </div>
