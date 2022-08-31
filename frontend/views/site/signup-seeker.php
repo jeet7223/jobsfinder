@@ -9,18 +9,34 @@ use yii\bootstrap4\Html;
 use yii\bootstrap4\ActiveForm;
 use yii\helpers\Url;
 
-$this->title = 'Signup';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Signup - Job Seeker';
 ?>
 <div class="site-signup">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to signup:</p>
+
+    <div class="shadow-div" id="form-container">
+        <ul class="nav nav-pills nav-fill">
+            <li class="nav-item active">
+                <a class="nav-link " href="<?= Url::to(['site/signup','user_type'=>'seeker'])
+                ?>">Job
+                    Seeker</a>
+            </li>
+            <li class="nav-item bg-light">
+                <a class="nav-link"  href="<?= Url::to(['site/signup','user_type'=>'employer'])
+                ?>">Employer</a>
+            </li>
+
+        </ul>
+
     <br>
-    <h4><b>Personal Details</b></h4>
+        <br>
+            <h2><strong><span style="color: #28a745">Register</span> Job Seeker</strong></h2>
+        <p>Please fill out the following fields to signup:</p>
     <div class="row">
         <div class="col-lg-12">
             <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+            <h4><b>Personal Details</b></h4>
+
             <div class="row">
                     <div class="col-lg-6">
                         <?= $form->field($seeker, 'first_name')->textInput(['autofocus' => true,'placeholder' => 'Enter First Name']) ?>
@@ -118,7 +134,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>       
                 </div>         
                 <div class="form-group">
-                    <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                    <?= Html::submitButton('Signup', ['class' => 'btn btn-success', 'name' => 'signup-button']) ?>
                 </div>
                 
 

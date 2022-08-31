@@ -92,6 +92,10 @@ a.desc:after {
     background: #fff !important;
     box-shadow: 0 14px 50px rgba(0, 0, 0, 0.2) !important;
 }
+.shadow-div{
+    background: #fff !important;
+    box-shadow: 0 14px 50px rgba(0, 0, 0, 0.2) !important;
+}
 #form-container{
     padding: 45px 45px;
     margin-bottom: 1em;
@@ -118,4 +122,17 @@ a.desc:after {
 .pagination  li a{
     text-decoration: none;
     color: #000000;
+}
+.site-signup .nav .active {
+    background: #28a745;
+    color: #ffffff !important;
+}
+.site-signup .nav .active a{
+    color: #ffffff !important;
+}
+.site-signup .nav .nav-item {
+    padding: 15px;
+}
+.site-signup .nav a{
+    color: #28a745;
 }
