@@ -38,7 +38,7 @@ class Employer extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'first_name', 'employment_type', 'gender', 'dob'], 'required'],
+            [[ 'first_name', 'employment_type', 'gender', 'dob'], 'required'],
             [['user_id', 'employment_type', 'gender'], 'integer'],
             [['address'], 'string'],
             [['first_name', 'last_name', 'contact_number', 'current_company_name', 'profile_image'], 'string', 'max' => 100],

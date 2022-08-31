@@ -40,10 +40,10 @@ class JobsData extends \yii\db\ActiveRecord
     {
         return [
             [['job_description', 'about_the_company'], 'string'],
-            [['job_type', 'category', 'status', 'is_featured'], 'integer'],
-            [['created_date'], 'safe'],
-            [['job_title', 'job_location', 'company_name', 'person_name', 'source'], 'string', 'max' => 100],
-            [['apply_link', 'job_url'], 'string', 'max' => 500],
+            [['job_type', 'status', 'is_featured'], 'integer'],
+            [['created_date','apply_link', 'job_url'], 'safe'],
+            [['job_title', 'job_location', 'company_name', 'person_name', 'source','category'], 'string', 'max' => 100],
+
         ];
     }
 

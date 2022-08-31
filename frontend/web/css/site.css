@@ -88,3 +88,34 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+.job-card{
+    background: #fff !important;
+    box-shadow: 0 14px 50px rgba(0, 0, 0, 0.2) !important;
+}
+#form-container{
+    padding: 45px 45px;
+    margin-bottom: 1em;
+}
+
+.pagination li{
+    border:1px solid #ced4da;
+    padding: 8px 12px;
+
+}
+.pagination li:hover{
+    border:1px solid #ced4da;
+    padding: 8px 12px;
+    background: #ced4da;
+    cursor: pointer;
+}
+.pagination .active{
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.pagination .active a{
+    color: white;
+}
+.pagination  li a{
+    text-decoration: none;
+    color: #000000;
+}

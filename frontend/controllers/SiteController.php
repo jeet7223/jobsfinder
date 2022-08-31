@@ -2,6 +2,8 @@
 
 namespace frontend\controllers;
 
+use common\models\Employer;
+use common\models\JobSeeker;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -15,7 +17,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-
+use yii\web\NotFoundHttpException;
 /**
  * Site controller
  */
@@ -151,17 +153,44 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionSignup()
+    public function actionSignup($user_type)
     {
         $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post()) && $model->signup()) {
-            Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
-            return $this->goHome();
+
+        if($user_type == 'seeker'){
+            $seeker = new JobSeeker();
+            if($model->load(Yii::$app->request->post()) && $model->validate() && $seeker->load(Yii::$app->request->post())){
+                $userId = $model->signup();
+                $seeker->user_id = $userId;
+                $seeker->save(false);
+                Yii::$app->session->setFlash('success', 'Thank you for registration. Your account will active soon');
+                return $this->goHome();
+            }
+
+            return $this->render('signup-seeker', [
+                'model' => $model,
+                'seeker' => $seeker
+            ]);
         }
 
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
+        elseif($user_type == 'employer'){
+            $employer = new Employer();
+            if($model->load(Yii::$app->request->post()) && $model->validate() && $employer->load(Yii::$app->request->post())){
+                $userId = $model->signup();
+                $employer->user_id = $userId;
+                $employer->save(false);
+                Yii::$app->session->setFlash('success', 'Thank you for registration. Your account will active soon');
+                return $this->goHome();
+            }
+            return $this->render('signup-employer', [
+                'model' => $model,
+                'employer' => $employer
+            ]);
+        }
+        else{
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+
     }
 
     /**
@@ -256,4 +285,5 @@ class SiteController extends Controller
             'model' => $model
         ]);
     }
+
 }

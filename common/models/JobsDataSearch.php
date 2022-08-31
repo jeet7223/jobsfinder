@@ -40,7 +40,7 @@ class JobsDataSearch extends JobsData
      */
     public function search($params)
     {
-        $query = JobsData::find();
+        $query = JobsData::find()->orderBy(['id'=>SORT_DESC]);
 
         // add conditions that should always apply here
 
