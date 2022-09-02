@@ -32,7 +32,7 @@
                             <!-- Header-btn -->
                             <div class="header-btn d-none f-right d-lg-block">
                               <?php if (Yii::$app->user->isGuest) {?>
-                                <a href="<?= \yii\helpers\Url::to(['site/signup','user_type'=>'seeker'])
+                                <a href="<?= \yii\helpers\Url::to(['site/signup','user_type'=>'job-seeker'])
                                 ?>" class="btn head-btn1">Register</a>
                                 <a href="<?= \yii\helpers\Url::to(['site/login'])
                                 ?>" class="btn head-btn2">Login</a>

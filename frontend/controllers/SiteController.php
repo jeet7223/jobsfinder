@@ -157,7 +157,7 @@ class SiteController extends Controller
     {
         $model = new SignupForm();
 
-        if($user_type == 'seeker'){
+        if($user_type == 'job-seeker'){
             $seeker = new JobSeeker();
             if($model->load(Yii::$app->request->post()) && $model->validate() && $seeker->load(Yii::$app->request->post())){
                 $userId = $model->signup();

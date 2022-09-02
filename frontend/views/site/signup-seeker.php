@@ -17,7 +17,7 @@ $this->title = 'Signup - Job Seeker';
     <div class="shadow-div" id="form-container">
         <ul class="nav nav-pills nav-fill">
             <li class="nav-item active">
-                <a class="nav-link " href="<?= Url::to(['site/signup','user_type'=>'seeker'])
+                <a class="nav-link " href="<?= Url::to(['site/signup','user_type'=>'job-seeker'])
                 ?>">Job
                     Seeker</a>
             </li>

@@ -17,7 +17,7 @@ $this->title = 'Signup - Employer';
     <div class="shadow-div" id="form-container">
         <ul class="nav nav-pills nav-fill">
             <li class="nav-item bg-light">
-                <a class="nav-link " href="<?= Url::to(['site/signup','user_type'=>'seeker'])
+                <a class="nav-link " href="<?= Url::to(['site/signup','user_type'=>'job-seeker'])
                 ?>">Job
                     Seeker</a>
             </li>
@@ -93,11 +93,6 @@ $this->title = 'Signup - Employer';
                     </div>
                     <div class="col-lg-6">
                         <?= $form->field($employer, 'employment_type')->dropdownList([0=>"Not Employed", 1=>'Self Employed', 2=> 'Student', 3 => 'Internship', 4 => 'Employed'])?>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <?= $form->field($employer, 'profile_image')->textInput()?>
                     </div>
                 </div>
                 <div class="form-group">

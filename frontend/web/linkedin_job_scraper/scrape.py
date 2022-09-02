@@ -120,7 +120,6 @@ for i in range(0, 5000):
         except:
             person_name = None
 
-
         try:
             company_name = driver.find_element(By.CLASS_NAME,'jobs-unified-top-card__company-name').text
         except:

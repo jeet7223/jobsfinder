@@ -66,6 +66,21 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'created_date:date',
             [
+                'attribute'=>'source',
+                'format'=>'raw',
+                'value'=>function($model){
+                    if($model->source == 'naukri'){
+                        return "naukri.com";
+                    }
+                    elseif($model->source == 'posted'){
+                        return "Posted job";
+                    }
+                    else{
+                        return "-";
+                    }
+                }
+            ],
+            [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, JobsData $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
