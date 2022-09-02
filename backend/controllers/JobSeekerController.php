@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use common\models\JobSeeker;
 use common\models\JobSeekerSearch;
+use common\models\User;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -60,27 +61,6 @@ class JobSeekerController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new JobSeeker model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return string|\yii\web\Response
-     */
-    public function actionCreate()
-    {
-        $model = new JobSeeker();
-
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
 
     /**
      * Updates an existing JobSeeker model.
@@ -91,10 +71,11 @@ class JobSeekerController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $model1 = $this->findModel($id);
+        $model = User::findOne($model1->user_id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model1->id]);
         }
 
         return $this->render('update', [

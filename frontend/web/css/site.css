@@ -148,3 +148,6 @@ a.desc:after {
     font-size: 16px;
 
 }
+.job-post-details h2{
+    display: none;
+}

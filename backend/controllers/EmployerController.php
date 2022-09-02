@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use common\models\Employer;
 use common\models\EmployerSearch;
+use common\models\User;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -61,28 +62,6 @@ class EmployerController extends Controller
     }
 
     /**
-     * Creates a new Employer model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return string|\yii\web\Response
-     */
-    public function actionCreate()
-    {
-        $model = new Employer();
-
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
      * Updates an existing Employer model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
@@ -91,10 +70,11 @@ class EmployerController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $model1 = $this->findModel($id);
+        $model = User::findOne($model1->user_id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view', 'id' => $model1->id]);
         }
 
         return $this->render('update', [
