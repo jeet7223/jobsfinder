@@ -2,7 +2,7 @@
 
 /** @var yii\web\View $this */
 
-$this->title = 'My Yii Application';
+$this->title = 'JobsFinder | Home';
 ?>
 <div class="site-index">
     <!-- slider Area Start-->
