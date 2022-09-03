@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "jobs_data".
  *
  * @property int $id
+* @property int $user_id
  * @property string|null $job_title
  * @property string|null $job_description
  * @property string|null $job_location
@@ -40,7 +41,7 @@ class JobsData extends \yii\db\ActiveRecord
     {
         return [
             [['job_description', 'about_the_company'], 'string'],
-            [['job_type', 'status', 'is_featured'], 'integer'],
+            [['job_type', 'status', 'is_featured','user_id'], 'integer'],
             [['created_date','apply_link', 'job_url'], 'safe'],
             [['job_title', 'job_location', 'company_name', 'person_name', 'source','category'], 'string', 'max' => 100],
 
