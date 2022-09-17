@@ -23,7 +23,7 @@ $this->title = $job_details->job_title;
                                 </a>
                                 <ul>
                                     <li><?= $job_details->company_name ?></li>
-                                    <li><i class="fas fa-map-marker-alt"></i><?= $job_details->job_location ?></li>
+                                    <li><i class="fas fa-map-marker-alt"></i> <?= $job_details->job_location ?></li>
                                 </ul>
                             </div>
 

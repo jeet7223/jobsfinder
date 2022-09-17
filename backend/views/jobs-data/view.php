@@ -34,7 +34,24 @@ $this->params['breadcrumbs'][] = $this->title;
             'job_location',
             'company_name',
             'person_name',
-            'job_type',
+            [
+                'attribute'=>'job_type',
+                'format'=>'raw',
+                'value'=>function($model){
+                    if($model->job_type == 0){
+                        return "Full Time";
+                    }
+                    elseif ($model->job_type == 1){
+                        return "Part Time";
+                    }
+                    elseif ($model->job_type == 2){
+                        return "Internship";
+                    }
+                    elseif ($model->job_type == 3){
+                        return "Remote Work";
+                    }
+                }
+            ],
             'category',
             'apply_link',
             'about_the_company:ntext',

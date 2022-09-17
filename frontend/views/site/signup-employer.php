@@ -99,9 +99,6 @@ $this->title = 'Signup - Employer';
                     <?= Html::submitButton('Signup', ['class' => 'btn head-btn2', 'name' => 'signup-button']) ?>
                 </div>
 
-
-
-
                 <?php ActiveForm::end(); ?>
             </div>
         </div>

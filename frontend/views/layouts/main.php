@@ -32,7 +32,12 @@ AppAsset::register($this);
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
-        <?= Alert::widget() ?>
+        <?= \frontend\widgets\Alert::widget(['options' => [
+
+            'type' => \frontend\widgets\Alert::TYPE_WARNING,
+        ],
+
+        ]) ?>
         <?= $content ?>
     <?php }else{?>
         <div class="container">

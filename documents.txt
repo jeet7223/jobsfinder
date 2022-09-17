@@ -18,7 +18,7 @@ go to browser nd type URL:- localhost/project_folder_name/admin/gii
 1)Model Generator :-
 -> Table Name
 -> Model Class Name = Auto_Generated
--> Namespace
+-> Namespace = common\models
 -> Preview Button
 -> Generate Button
 
@@ -42,3 +42,4 @@ go to browser nd type URL:- localhost/project_folder_name/admin/gii
 **Import Model Class**
 ->backend->view->folderview[job-data]->index.php
 	use common\models\{MOdelClassName};
+	

@@ -72,7 +72,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     if($model->source == 'naukri'){
                         return "naukri.com";
                     }
-                    elseif($model->source == 'posted'){
+                    elseif($model->source == 'posted-job'){
                         return "Posted job";
                     }
                     else{

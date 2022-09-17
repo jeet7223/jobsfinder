@@ -23,7 +23,8 @@
                                             ?>">Find a Jobs </a></li>
                                         <li><a href="<?= \yii\helpers\Url::to(['site/about'])
                                             ?>">About</a></li>
-
+                                        <li><a href="<?= \yii\helpers\Url::to(['jobs/post-a-job'])
+                                            ?>">Post a Job</a></li>
                                         <li><a href="<?= \yii\helpers\Url::to(['site/contact'])
                                             ?>">Contact</a></li>
                                     </ul>

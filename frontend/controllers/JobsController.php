@@ -2,8 +2,10 @@
 
 namespace frontend\controllers;
 
+use common\models\Employer;
 use common\models\JobsData;
 use common\models\JobsDataSearch;
+use common\models\User;
 use Yii;
 
 class JobsController extends \yii\web\Controller
@@ -25,6 +27,24 @@ class JobsController extends \yii\web\Controller
             'job_details'=>$job_details
         ]);
     }
-    
-  
+
+    public function actionPostAJob()
+    {
+        $post_a_job = new JobsData();
+        if($post_a_job->load(Yii::$app->request->post()) && $post_a_job->validate() && $post_a_job->load(Yii::$app->request->post())){
+            $post_a_job->source = 'posted-job';
+            $post_a_job->category = 'General';
+            $user  = User::findOne(Yii::$app->user->identity->id);
+            $employer = Employer::findOne(['user_id'=>$user->id]);
+            $post_a_job->person_name = $employer->first_name." ".$employer->last_name;
+            $post_a_job->save(false);
+            Yii::$app->session->setFlash('success','Job Posted Successfully');
+            return $this->redirect(['site/index']);
+        }
+        return $this->render('post-a-job',[
+            'post_a_job'=>$post_a_job
+        ]);
+    }
+
+
 }

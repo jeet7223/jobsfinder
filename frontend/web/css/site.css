@@ -151,3 +151,6 @@ a.desc:after {
 .job-post-details h2{
     display: none;
 }
+.sa-confirm-button-container .confirm{
+    background-color: #fb246a !important;
+}
