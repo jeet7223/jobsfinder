@@ -154,3 +154,14 @@ a.desc:after {
 .sa-confirm-button-container .confirm{
     background-color: #fb246a !important;
 }
+#banner-form input{
+    height: 55px;
+    border: unset;
+    border-radius: 0;
+}
+#banner-form .input-form{
+    margin-right: 5px;
+}
+.forgot-password{
+    color: #fb246a !important;
+}

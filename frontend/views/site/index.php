@@ -2,6 +2,10 @@
 
 /** @var yii\web\View $this */
 
+use common\models\JobsDataSearch;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
 $this->title = 'JobsFinder | Home';
 ?>
 <div class="site-index">
@@ -23,17 +27,31 @@ $this->title = 'JobsFinder | Home';
                     <div class="row">
                         <div class="col-xl-8">
                             <!-- form -->
-                            <form action="#" class="search-box">
-                                <div class="input-form">
-                                    <input type="text" placeholder="Job Tittle or keyword">
-                                </div>
-                                <div class="select-form">
+                            <?php $form = ActiveForm::begin([
+                                'action' => \yii\helpers\Url::to(['jobs/listings']),
+                                'method' => 'get',
+                                'options' => [
+                                    'data-pjax' => 1
+                                ],
 
+                            ]);
+                            $model  = new JobsDataSearch();
+                            ?>
+                            <div class="d-lg-flex" id="banner-form">
+                            <div class="input-form">
+                                <?= $form->field($model,'keyword')->textInput(['placeholder'=>'Keyword, Skill, Title'])
+                                    ->label
+                                    (false)?>
                                 </div>
+                            <div class="input-form">
+                                <?= $form->field($model,'job_location')->textInput(['placeholder'=>'Job Location'])->label
+                                (false)?>
+                            </div>
                                 <div class="search-form">
-                                    <a href="#">Find job</a>
+                                    <?= Html::submitButton('Search', ['class' => 'btn head-btn1 w-100']) ?>
                                 </div>
-                            </form>
+                            </div>
+                            <?php ActiveForm::end(); ?>
                         </div>
                     </div>
                 </div>

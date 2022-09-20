@@ -26,6 +26,8 @@ use Yii;
  */
 class JobsData extends \yii\db\ActiveRecord
 {
+
+    public $keyword;
     /**
      * {@inheritdoc}
      */
@@ -42,7 +44,7 @@ class JobsData extends \yii\db\ActiveRecord
         return [
             [['job_description', 'about_the_company'], 'string'],
             [['job_type', 'status', 'is_featured','user_id'], 'integer'],
-            [['created_date','apply_link', 'job_url'], 'safe'],
+            [['created_date','apply_link', 'job_url','keyword'], 'safe'],
             [['job_title', 'job_location', 'company_name', 'person_name', 'source','category'], 'string', 'max' => 100],
             // name, email, subject and body are required
             [['job_title', 'job_location', 'job_type', 'job_description', 'company_name', 'about_the_company'], 'required'],

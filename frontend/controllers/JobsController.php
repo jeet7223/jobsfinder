@@ -7,9 +7,32 @@ use common\models\JobsData;
 use common\models\JobsDataSearch;
 use common\models\User;
 use Yii;
+use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 
 class JobsController extends \yii\web\Controller
 {
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['post-a-job'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'actions' => ['listings','details'],
+                        'allow' => true,
+                    ],
+
+                ],
+            ],
+
+        ];
+    }
     public function actionListings()
     {
         $searchModel = new JobsDataSearch();

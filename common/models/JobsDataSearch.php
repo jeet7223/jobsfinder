@@ -18,7 +18,7 @@ class JobsDataSearch extends JobsData
     {
         return [
             [['id', 'job_type', 'status', 'is_featured'], 'integer'],
-            [['job_title', 'job_description', 'job_location', 'company_name', 'person_name', 'category', 'apply_link', 'about_the_company', 'job_url', 'created_date'], 'safe'],
+            [['job_title', 'job_description', 'job_location', 'company_name', 'person_name', 'category', 'apply_link', 'about_the_company', 'job_url', 'source','created_date','keyword'], 'safe'],
         ];
     }
 
@@ -66,13 +66,14 @@ class JobsDataSearch extends JobsData
         ]);
 
         $query->andFilterWhere(['like', 'job_title', $this->job_title])
-            ->andFilterWhere(['like', 'job_description', $this->job_description])
             ->andFilterWhere(['like', 'job_location', $this->job_location])
             ->andFilterWhere(['like', 'company_name', $this->company_name])
             ->andFilterWhere(['like', 'person_name', $this->person_name])
             ->andFilterWhere(['like', 'category', $this->category])
             ->andFilterWhere(['like', 'apply_link', $this->apply_link])
-            ->andFilterWhere(['like', 'about_the_company', $this->about_the_company])
+            ->andFilterWhere(['like', 'source', $this->source])
+            ->orFilterWhere(['like', 'job_description', $this->keyword])
+            ->orFilterWhere(['like', 'about_the_company', $this->keyword])
             ->andFilterWhere(['like', 'job_url', $this->job_url]);
 
         return $dataProvider;

@@ -15,9 +15,9 @@ $this->title = 'Jobs Listing'
         <br>
         <div class="row">
             <div class="col-md-4">
-                <div class="container query-details-tab" id="form-container"
-                     style="margin-top:40px">
-                   Filter will be here
+                <div class="container job-card query-details-tab" id="form-container"
+                     style="margin-top:58px">
+                      <?= $this->render('_search',['model'=>$searchModel])?>
                 </div>
             </div>
             <div class="col-md-8">
