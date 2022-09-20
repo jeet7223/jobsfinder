@@ -26,7 +26,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'source') ?>
 
-    <?= $form->field($model, 'file_path') ?>
+
 
     <?php // echo $form->field($model, 'status') ?>
 

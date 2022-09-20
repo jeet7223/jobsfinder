@@ -45,7 +45,7 @@ class JobSeeker extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['gender', 'dob', 'professional_title', 'employment_status'], 'required'],
+            [['gender', 'dob', 'employment_status'], 'required'],
             [['user_id', 'gender', 'from_year', 'to_year', 'total_experience', 'employment_status'], 'integer'],
             [['address', 'about_your_self', 'about_employment'], 'string'],
             [['first_name', 'last_name', 'contact_number', 'institution_name', 'course_name', 'skills', 'professional_title'], 'string', 'max' => 100],

@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use common\models\ScrapeJobs;
 use common\models\ScrapeJobsSearch;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -47,18 +48,6 @@ class ScrapeJobsController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single ScrapeJobs model.
-     * @param int $id ID
-     * @return string
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
 
     /**
      * Creates a new ScrapeJobs model.
@@ -72,8 +61,11 @@ class ScrapeJobsController extends Controller
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) ) {
                 $model->job_type = implode(',',$model->job_type);
-               $model->save();
-                return $this->redirect(['view', 'id' => $model->id]);
+                $model->save();
+                $command = "/usr/bin/python3 /var/www/html/jobsfinder/frontend/web/linkedin_job_scraper/scrape.py "
+                    .$model->id.' > /dev/null &';
+                exec($command);
+                return $this->redirect(['index']);
             }
         } else {
             $model->loadDefaultValues();
@@ -83,40 +75,17 @@ class ScrapeJobsController extends Controller
             'model' => $model,
         ]);
     }
+        public function actionTest(){
 
-    /**
-     * Updates an existing ScrapeJobs model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $id ID
-     * @return string|\yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        $my_output = shell_exec("/usr/bin/python3 /var/www/html/jobsfinder/frontend/web/linkedin_job_scraper/scrape.py 1 2>&1");
+        echo "<pre>";
+        print_r($my_output);
+        die();
     }
 
-    /**
-     * Deletes an existing ScrapeJobs model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $id ID
-     * @return \yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
-    }
+
+
 
     /**
      * Finds the ScrapeJobs model based on its primary key value.

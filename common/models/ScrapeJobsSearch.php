@@ -18,7 +18,7 @@ class ScrapeJobsSearch extends ScrapeJobs
     {
         return [
             [['id', 'status', 'scrape_limit'], 'integer'],
-            [['location', 'job_type', 'source', 'file_path', 'requested_date'], 'safe'],
+            [['location', 'job_type', 'source', 'requested_date'], 'safe'],
         ];
     }
 
@@ -66,8 +66,7 @@ class ScrapeJobsSearch extends ScrapeJobs
 
         $query->andFilterWhere(['like', 'location', $this->location])
             ->andFilterWhere(['like', 'job_type', $this->job_type])
-            ->andFilterWhere(['like', 'source', $this->source])
-            ->andFilterWhere(['like', 'file_path', $this->file_path]);
+            ->andFilterWhere(['like', 'source', $this->source]);
 
         return $dataProvider;
     }

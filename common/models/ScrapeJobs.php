@@ -11,7 +11,7 @@ use Yii;
  * @property string $location
  * @property string $job_type
  * @property string $source
- * @property string $file_path
+ * @property string $keyword
  * @property int $status
  * @property int $scrape_limit
  * @property string $requested_date
@@ -32,10 +32,10 @@ class ScrapeJobs extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['location', 'job_type', 'source', 'file_path', 'scrape_limit'], 'required'],
+            [[ 'job_type', 'source', 'scrape_limit'], 'required'],
             [['status', 'scrape_limit'], 'integer'],
             [['requested_date','job_type'], 'safe'],
-            [['location', 'file_path'], 'string', 'max' => 100],
+            [['location', 'keyword'], 'string', 'max' => 100],
             [['source'], 'string', 'max' => 10],
         ];
     }

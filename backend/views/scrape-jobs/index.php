@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Scrape Jobs', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php Pjax::begin(); ?>
+    <?php Pjax::begin(['id'=>'scrape-jobs-pjax']); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
+            'keyword',
             'location',
             [
 
@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             'source',
-            'file_path',
+
             [
                 'attribute'=>'status',
                 'format'=>'raw',
@@ -59,15 +59,22 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'scrape_limit',
             'requested_date:date',
-            [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, ScrapeJobs $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                 }
-            ],
+
         ],
     ]); ?>
 
     <?php Pjax::end(); ?>
 
 </div>
+<?php
+
+$script = <<< JS
+
+     setInterval(function(){ 
+        $.pjax.reload({container: '#scrape-jobs-pjax', async: false});  
+      }, 3000);
+
+
+JS;
+$this->registerJs($script);
+?>

@@ -69,11 +69,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'source',
                 'format'=>'raw',
                 'value'=>function($model){
-                    if($model->source == 'naukri'){
-                        return "naukri.com";
+                    if($model->source == 'linkedin'){
+                        return "linkedin.com";
                     }
                     elseif($model->source == 'posted-job'){
                         return "Posted job";
+                    }
+                    elseif ($model->source == 'naukri'){
+                        return "naukri.com";
                     }
                     else{
                         return "-";
